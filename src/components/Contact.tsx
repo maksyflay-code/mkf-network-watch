@@ -101,9 +101,9 @@ const Contact = () => {
                 </div>
                 
                 <Button 
-                  variant="outline"
+                  variant="premium"
                   size="lg" 
-                  className="w-full border-white text-white hover:bg-white hover:text-primary"
+                  className="w-full"
                   onClick={() => window.open('https://wa.me/5574998042836?text=Olá! Gostaria de solicitar uma avaliação gratuita para implementação de monitoramento na minha empresa.', '_blank')}
                 >
                   Solicitar Avaliação Gratuita

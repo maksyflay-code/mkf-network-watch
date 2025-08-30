@@ -24,7 +24,7 @@ const Services = () => {
     {
       icon: AlertTriangle,
       title: "Sistema de Alertas",
-      description: "Notificações inteligentes para problemas críticos via email, SMS e WhatsApp.",
+      description: "Notificações inteligentes para problemas críticos via email, SMS e Telegram.",
       features: ["Alertas personalizados", "Escalação automática", "Múltiplos canais"]
     },
     {

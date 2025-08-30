@@ -60,14 +60,14 @@ const Hero = () => {
             variant="hero" 
             size="lg"
             className="text-lg px-8 py-4"
-            onClick={() => window.open('https://wa.me/5574998042836?text=Olá! Gostaria de saber mais sobre os serviços de monitoramento da MKF Solutions.', '_blank')}
+            onClick={() => window.open('https://wa.me/557498042836?text=Olá! Gostaria de saber mais sobre os serviços de monitoramento da MKF Solutions.', '_blank')}
           >
             Solicitar Orçamento
           </Button>
           <Button 
-            variant="outline" 
+            variant="premium" 
             size="lg"
-            className="text-lg px-8 py-4 border-white text-white hover:bg-white hover:text-primary"
+            className="text-lg px-8 py-4"
           >
             Conhecer Soluções
           </Button>
