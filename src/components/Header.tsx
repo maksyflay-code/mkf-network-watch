@@ -13,82 +13,74 @@ const Header = () => {
     setIsMenuOpen(false);
   };
 
+  const navItems = [
+    { id: 'services', label: 'Serviços' },
+    { id: 'firewall', label: 'Firewall' },
+    { id: 'siem', label: 'SIEM' },
+    { id: 'dashboards', label: 'Dashboards' },
+    { id: 'checklist', label: 'Maturidade' },
+    { id: 'contact', label: 'Contato' },
+  ];
+
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-border">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-md border-b border-primary/30">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <div className="flex items-center space-x-2">
-            <img 
-              src="/lovable-uploads/3233802a-3aab-4144-b7d2-670bc8ede20a.png" 
+          <div className="flex items-center space-x-3">
+            <img
+              src="/lovable-uploads/3233802a-3aab-4144-b7d2-670bc8ede20a.png"
               alt="MKF Solutions"
               className="h-10 w-auto"
             />
+            <span className="hidden sm:inline font-mono text-xs text-primary uppercase tracking-widest">
+              [ secure-terminal ]
+            </span>
           </div>
-          
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
-            <button 
-              onClick={() => scrollToSection('services')}
-              className="text-foreground hover:text-primary transition-colors"
-            >
-              Serviços
-            </button>
-            <button 
-              onClick={() => scrollToSection('dashboards')}
-              className="text-foreground hover:text-primary transition-colors"
-            >
-              Dashboards
-            </button>
-            <button 
-              onClick={() => scrollToSection('contact')}
-              className="text-foreground hover:text-primary transition-colors"
-            >
-              Contato
-            </button>
-            <Button 
-              variant="default"
-              onClick={() => window.open('https://wa.me/5574998042836?text=Olá! Gostaria de saber mais sobre os serviços de monitoramento da MKF Solutions.', '_blank')}
+
+          <nav className="hidden lg:flex items-center space-x-6">
+            {navItems.map((item) => (
+              <button
+                key={item.id}
+                onClick={() => scrollToSection(item.id)}
+                className="text-sm text-foreground hover:text-primary transition-colors font-mono uppercase tracking-wider"
+              >
+                {item.label}
+              </button>
+            ))}
+            <Button
+              variant="premium"
+              size="sm"
+              onClick={() => window.open('https://wa.me/5574998042836?text=Olá! Gostaria de saber mais sobre os serviços da MKF Solutions.', '_blank')}
             >
               Orçamento
             </Button>
           </nav>
-          
-          {/* Mobile Menu Button */}
+
           <button
-            className="md:hidden"
+            className="lg:hidden text-foreground"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-label="Menu"
           >
             {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
         </div>
-        
-        {/* Mobile Navigation */}
+
         {isMenuOpen && (
-          <div className="md:hidden py-4 border-t border-border">
+          <div className="lg:hidden py-4 border-t border-primary/20">
             <nav className="flex flex-col space-y-4">
-              <button 
-                onClick={() => scrollToSection('services')}
-                className="text-left text-foreground hover:text-primary transition-colors"
-              >
-                Serviços
-              </button>
-              <button 
-                onClick={() => scrollToSection('dashboards')}
-                className="text-left text-foreground hover:text-primary transition-colors"
-              >
-                Dashboards
-              </button>
-              <button 
-                onClick={() => scrollToSection('contact')}
-                className="text-left text-foreground hover:text-primary transition-colors"
-              >
-                Contato
-              </button>
-              <Button 
-                variant="default"
+              {navItems.map((item) => (
+                <button
+                  key={item.id}
+                  onClick={() => scrollToSection(item.id)}
+                  className="text-left text-foreground hover:text-primary transition-colors font-mono uppercase text-sm tracking-wider"
+                >
+                  {item.label}
+                </button>
+              ))}
+              <Button
+                variant="premium"
                 className="w-full"
-                onClick={() => window.open('https://wa.me/5574998042836?text=Olá! Gostaria de saber mais sobre os serviços de monitoramento da MKF Solutions.', '_blank')}
+                onClick={() => window.open('https://wa.me/5574998042836?text=Olá! Gostaria de saber mais sobre os serviços da MKF Solutions.', '_blank')}
               >
                 Orçamento
               </Button>

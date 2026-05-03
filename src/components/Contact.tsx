@@ -4,14 +4,18 @@ import { Phone, Mail, MapPin, MessageCircle } from "lucide-react";
 
 const Contact = () => {
   return (
-    <section id="contact" className="py-20 bg-muted/50">
-      <div className="container mx-auto px-4">
+    <section id="contact" className="py-20 relative overflow-hidden">
+      <div className="absolute inset-0 grid-pattern opacity-20" />
+      <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
+          <p className="font-mono text-xs text-primary uppercase tracking-[0.4em] mb-4">
+            // [ contact ] // initiate_connection
+          </p>
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Entre em Contato
+            Entre em <span className="text-primary text-glow">Contato</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Pronto para transformar o monitoramento da sua infraestrutura? 
+            Pronto para transformar a segurança e o monitoramento da sua infraestrutura?
             Nossa equipe está aqui para ajudar você a encontrar a solução ideal.
           </p>
         </div>
@@ -71,7 +75,7 @@ const Contact = () => {
           </div>
           
           {/* Contact Card */}
-          <Card className="border-0 shadow-glow bg-gradient-primary text-white">
+          <Card className="border border-primary/40 shadow-cyber bg-gradient-cyber corner-brackets">
             <CardHeader>
               <CardTitle className="text-2xl text-center">Solicite seu Orçamento</CardTitle>
             </CardHeader>
