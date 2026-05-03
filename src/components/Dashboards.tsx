@@ -132,8 +132,8 @@ const Dashboards = () => {
               </div>
             </button>
             <CardHeader>
-              <CardTitle className="font-mono uppercase tracking-wider text-primary text-base">
-                // dashboards_grafana
+              <CardTitle className="text-2xl font-bold tracking-tight text-primary">
+                Grafana
               </CardTitle>
             </CardHeader>
             <CardContent>
@@ -168,28 +168,48 @@ const Dashboards = () => {
 
           {/* Zabbix */}
           <Card className="overflow-hidden border border-primary/30 bg-card/80 backdrop-blur-sm shadow-cyber">
-            <figure className="relative">
+            <button
+              type="button"
+              onClick={() =>
+                setOpenPanel({
+                  src: zabbixImage,
+                  alt: "Painel Zabbix",
+                  title: "Zabbix",
+                  subtitle: "Monitoramento Empresarial",
+                  description:
+                    "Solução enterprise para monitoramento de infraestrutura com auto-descoberta, mapas de rede dinâmicos, correlação de eventos, severidade de problemas e disponibilidade detalhada por host.",
+                  metrics: [
+                    { label: "HOSTS", value: "+500" },
+                    { label: "TRIGGERS", value: "+2K" },
+                    { label: "SLA", value: "99.9%" },
+                  ],
+                })
+              }
+              className="relative block w-full text-left group focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+              aria-label="Ampliar painel Zabbix"
+            >
               <img
                 src={zabbixImage}
                 alt="Painel Zabbix mostrando hosts, mapas de rede, severidade de problemas e disponibilidade de infraestrutura"
                 loading="lazy"
                 width={1280}
                 height={832}
-                className="w-full h-64 object-cover object-top"
+                className="w-full h-64 object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent" />
               <div className="absolute top-3 left-3 font-mono text-[10px] text-primary uppercase tracking-widest border border-primary/50 bg-background/80 px-2 py-1 animate-pulse-glow">
                 ● LIVE
               </div>
-              <figcaption className="absolute bottom-3 left-3 right-3 flex items-end justify-between">
-                <div>
-                  <h3 className="text-2xl font-bold text-foreground">Zabbix</h3>
-                  <p className="text-xs font-mono uppercase tracking-widest text-muted-foreground">
-                    Monitoramento Empresarial
-                  </p>
-                </div>
-              </figcaption>
-            </figure>
+              <div className="absolute top-3 right-3 flex items-center gap-1 font-mono text-[10px] text-foreground uppercase tracking-widest border border-primary/40 bg-background/80 px-2 py-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                <ZoomIn className="h-3 w-3" /> Ampliar
+              </div>
+              <div className="absolute bottom-3 left-3 right-3">
+                <h3 className="text-2xl font-bold text-foreground">Zabbix</h3>
+                <p className="text-xs font-mono uppercase tracking-widest text-muted-foreground">
+                  Monitoramento Empresarial
+                </p>
+              </div>
+            </button>
             <CardHeader>
               <CardTitle className="font-mono uppercase tracking-wider text-primary text-base">
                 // painéis_zabbix
