@@ -52,15 +52,6 @@ const Contact = () => {
                 </div>
               </div>
               
-              <div className="flex items-center space-x-4">
-                <div className="w-12 h-12 bg-gradient-primary rounded-lg flex items-center justify-center">
-                  <Mail className="h-6 w-6 text-primary-foreground" />
-                </div>
-                <div>
-                  <p className="font-semibold">Email</p>
-                  <p className="text-muted-foreground">contato@mkfsolutions.com.br</p>
-                </div>
-              </div>
             </div>
             
             <Button 
