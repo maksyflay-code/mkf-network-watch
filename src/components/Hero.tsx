@@ -26,12 +26,12 @@ const Hero = () => {
         </div>
         
         <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-white to-green-200 bg-clip-text text-transparent">
-          Monitoramento Inteligente
+          Monitoramento e Cibersegurança
         </h1>
         
         <p className="text-xl md:text-2xl mb-8 max-w-4xl mx-auto leading-relaxed">
-          Soluções avançadas de monitoramento para empresas e provedores de internet. 
-          Mantenha sua infraestrutura sempre sob controle com nossa tecnologia de ponta.
+          Soluções avançadas de monitoramento, firewall e SIEM para empresas e provedores de internet.
+          Proteja sua infraestrutura e mantenha tudo sob controle com nossa tecnologia de ponta.
         </p>
         
         {/* Feature Icons */}

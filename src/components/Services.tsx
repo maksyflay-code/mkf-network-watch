@@ -1,5 +1,5 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Monitor, Server, Wifi, AlertTriangle, BarChart3, Settings } from "lucide-react";
+import { Monitor, Server, Wifi, AlertTriangle, BarChart3, Settings, Shield, ShieldAlert, Lock } from "lucide-react";
 
 const Services = () => {
   const services = [
@@ -22,6 +22,24 @@ const Services = () => {
       features: ["CPU e memória", "Armazenamento", "Processos críticos"]
     },
     {
+      icon: Shield,
+      title: "Firewall e Proteção de Perímetro",
+      description: "Implementação e gerenciamento de firewalls de próxima geração (NGFW) para proteger sua rede contra ameaças externas.",
+      features: ["Filtragem avançada de tráfego", "Prevenção de intrusão (IPS)", "Controle de aplicações e VPN"]
+    },
+    {
+      icon: ShieldAlert,
+      title: "SIEM - Gestão de Eventos",
+      description: "Centralização e correlação de logs de segurança para detecção rápida de incidentes e resposta a ameaças.",
+      features: ["Correlação de eventos em tempo real", "Detecção de anomalias", "Compliance e auditoria"]
+    },
+    {
+      icon: Lock,
+      title: "Cibersegurança Corporativa",
+      description: "Soluções completas de segurança da informação para proteger dados, usuários e ativos críticos do seu negócio.",
+      features: ["Análise de vulnerabilidades", "Hardening de servidores", "Resposta a incidentes"]
+    },
+    {
       icon: AlertTriangle,
       title: "Sistema de Alertas",
       description: "Notificações inteligentes para problemas críticos via email, SMS e Telegram.",
@@ -30,7 +48,7 @@ const Services = () => {
     {
       icon: BarChart3,
       title: "Relatórios e Analytics",
-      description: "Dashboards interativos e relatórios detalhados para análise de performance.",
+      description: "Dashboards interativos e relatórios detalhados para análise de performance e segurança.",
       features: ["Dashboards personalizados", "Relatórios automáticos", "Análise de tendências"]
     },
     {
