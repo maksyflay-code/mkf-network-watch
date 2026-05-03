@@ -107,7 +107,7 @@ const SIEM = () => {
               variant="telegram"
               size="lg"
               className="text-base px-8"
-              onClick={() => window.open('https://wa.me/5574998042836?text=Olá! Quero conversar sobre o SIEM e integração com Telegram da MKF Solutions.', '_blank')}
+              onClick={() => window.open(`https://t.me/+5574991115690?text=${encodeURIComponent('Olá MKF Solutions! Quero conversar sobre o SIEM e integração de alertas no Telegram.')}`, '_blank')}
             >
               <Send className="mr-2 h-5 w-5" />
               Conversar no Telegram

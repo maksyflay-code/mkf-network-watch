@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Check, ShieldCheck, AlertCircle } from "lucide-react";
+import { Check, ShieldCheck, AlertCircle, Send } from "lucide-react";
 
 interface Item {
   id: string;
@@ -141,18 +141,37 @@ const Checklist = () => {
               </div>
 
               <Button
-                variant="premium"
+                variant="telegram"
                 className="w-full"
-                onClick={() =>
+                onClick={() => {
+                  const checkedItems = items.filter((it) => checked[it.id]);
+                  const missingItems = items.filter((it) => !checked[it.id]);
+
+                  const checkedSummary = checkedItems.length
+                    ? checkedItems.map((it) => `✅ ${it.text}`).join("\n")
+                    : "— Nenhum controle marcado —";
+
+                  const missingSummary = missingItems.length
+                    ? missingItems.slice(0, 6).map((it) => `❌ ${it.text}`).join("\n") +
+                      (missingItems.length > 6 ? `\n…e mais ${missingItems.length - 6} pendentes` : "")
+                    : "— Nenhuma pendência —";
+
+                  const message =
+                    `🛡️ *Diagnóstico de Maturidade — MKF Solutions*\n\n` +
+                    `📊 Pontuação: *${score.pct}%* (${score.done}/${score.total} controles)\n` +
+                    `🎯 Nível: *${level.label}*\n\n` +
+                    `*Controles implementados:*\n${checkedSummary}\n\n` +
+                    `*Lacunas identificadas:*\n${missingSummary}\n\n` +
+                    `Gostaria de uma avaliação especializada para evoluir minha postura de segurança.`;
+
                   window.open(
-                    `https://wa.me/5574998042836?text=${encodeURIComponent(
-                      `Olá MKF Solutions! Fiz o checklist de maturidade e atingi ${score.pct}% (nível ${level.label}). Gostaria de uma avaliação especializada.`
-                    )}`,
+                    `https://t.me/+5574991115690?text=${encodeURIComponent(message)}`,
                     "_blank"
-                  )
-                }
+                  );
+                }}
               >
-                Falar com Especialista
+                <Send className="mr-2 h-4 w-4" />
+                Falar com Especialista no Telegram
               </Button>
             </div>
           </div>

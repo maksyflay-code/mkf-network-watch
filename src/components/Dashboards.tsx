@@ -147,7 +147,7 @@ const Dashboards = () => {
           <Button
             variant="premium"
             size="lg"
-            onClick={() => window.open('https://wa.me/5574998042836?text=Olá! Gostaria de ver uma demonstração dos dashboards da MKF Solutions.', '_blank')}
+            onClick={() => window.open('https://wa.me/5574991115690?text=Olá! Gostaria de ver uma demonstração dos dashboards da MKF Solutions.', '_blank')}
           >
             Ver Demonstração dos Dashboards
           </Button>
