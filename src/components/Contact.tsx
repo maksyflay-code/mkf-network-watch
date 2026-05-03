@@ -34,17 +34,17 @@ const Contact = () => {
             <div className="space-y-4">
               <div className="flex items-center space-x-4">
                 <div className="w-12 h-12 bg-gradient-primary rounded-lg flex items-center justify-center">
-                  <Phone className="h-6 w-6 text-white" />
+                  <Phone className="h-6 w-6 text-primary-foreground" />
                 </div>
                 <div>
                   <p className="font-semibold">Telefone</p>
-                  <p className="text-muted-foreground">+55 (74) 99804-2836</p>
+                  <p className="text-muted-foreground">+55 (74) 99111-5690</p>
                 </div>
               </div>
               
               <div className="flex items-center space-x-4">
                 <div className="w-12 h-12 bg-gradient-primary rounded-lg flex items-center justify-center">
-                  <MessageCircle className="h-6 w-6 text-white" />
+                  <MessageCircle className="h-6 w-6 text-primary-foreground" />
                 </div>
                 <div>
                   <p className="font-semibold">WhatsApp</p>
@@ -54,7 +54,7 @@ const Contact = () => {
               
               <div className="flex items-center space-x-4">
                 <div className="w-12 h-12 bg-gradient-primary rounded-lg flex items-center justify-center">
-                  <Mail className="h-6 w-6 text-white" />
+                  <Mail className="h-6 w-6 text-primary-foreground" />
                 </div>
                 <div>
                   <p className="font-semibold">Email</p>
@@ -81,22 +81,22 @@ const Contact = () => {
             </CardHeader>
             <CardContent className="space-y-6">
               <div className="text-center space-y-4">
-                <p className="text-white/90">
+                <p className="text-foreground/90">
                   Receba uma proposta personalizada para suas necessidades de monitoramento
                 </p>
                 
-                <div className="bg-white/20 rounded-lg p-4 space-y-3">
+                <div className="bg-primary/10 border border-primary/30 rounded-lg p-4 space-y-3">
                   <div className="flex items-center justify-between">
                     <span>Avaliação gratuita</span>
-                    <span className="text-green-300">✓</span>
+                    <span className="text-success">✓</span>
                   </div>
                   <div className="flex items-center justify-between">
                     <span>Setup personalizado</span>
-                    <span className="text-green-300">✓</span>
+                    <span className="text-success">✓</span>
                   </div>
                   <div className="flex items-center justify-between">
                     <span>Suporte 24/7</span>
-                    <span className="text-green-300">✓</span>
+                    <span className="text-success">✓</span>
                   </div>
                   <div className="flex items-center justify-between">
                     <span>Sem compromisso</span>
