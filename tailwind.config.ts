@@ -62,15 +62,22 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
+				'network-red': 'hsl(var(--network-red))',
 				'network-green': 'hsl(var(--network-green))',
-				'network-blue': 'hsl(var(--network-blue))'
+				success: 'hsl(var(--success))',
+				warning: 'hsl(var(--warning))'
+			},
+			fontFamily: {
+				mono: ['JetBrains Mono', 'Courier New', 'monospace']
 			},
 			backgroundImage: {
 				'gradient-primary': 'var(--gradient-primary)',
-				'gradient-hero': 'var(--gradient-hero)'
+				'gradient-hero': 'var(--gradient-hero)',
+				'gradient-cyber': 'var(--gradient-cyber)'
 			},
 			boxShadow: {
-				'glow': 'var(--shadow-glow)'
+				'glow': 'var(--shadow-glow)',
+				'cyber': 'var(--shadow-cyber)'
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
