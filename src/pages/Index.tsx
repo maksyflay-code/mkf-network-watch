@@ -2,7 +2,10 @@ import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import Services from "@/components/Services";
 import Stats from "@/components/Stats";
+import Firewall from "@/components/Firewall";
+import SIEM from "@/components/SIEM";
 import Dashboards from "@/components/Dashboards";
+import Checklist from "@/components/Checklist";
 import Contact from "@/components/Contact";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
 
@@ -12,8 +15,11 @@ const Index = () => {
       <Header />
       <Hero />
       <Services />
-      <Stats />
+      <Firewall />
+      <SIEM />
       <Dashboards />
+      <Stats />
+      <Checklist />
       <Contact />
       <WhatsAppFloat />
     </div>
