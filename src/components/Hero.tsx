@@ -31,9 +31,7 @@ const Hero = () => {
           />
         </div>
 
-        <p className="font-mono text-xs text-primary uppercase tracking-[0.4em] mb-4">
-          // MKF-SEC-GW01 // MONITORING & CYBERSECURITY
-        </p>
+
 
         <h1 className="text-5xl md:text-7xl font-bold mb-6 text-foreground">
           <span className="text-glow text-primary">Monitoramento</span>
