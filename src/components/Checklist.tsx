@@ -91,7 +91,7 @@ const Checklist = () => {
                         >
                           {isChecked && <Check className="h-3.5 w-3.5 text-background" />}
                         </span>
-                        <span className={`text-sm ${isChecked ? "text-foreground" : "text-foreground/85"}`}>
+                        <span className={`text-base md:text-lg font-semibold leading-snug ${isChecked ? "text-foreground" : "text-foreground/90"}`}>
                           {item.text}
                         </span>
                       </button>
