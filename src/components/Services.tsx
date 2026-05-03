@@ -60,26 +60,30 @@ const Services = () => {
   ];
 
   return (
-    <section id="services" className="py-20 bg-muted/50">
-      <div className="container mx-auto px-4">
+    <section id="services" className="py-20 relative overflow-hidden">
+      <div className="absolute inset-0 grid-pattern opacity-20" />
+      <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
+          <p className="font-mono text-xs text-primary uppercase tracking-[0.4em] mb-4">
+            // [ services ] // full_stack_protection
+          </p>
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Nossos Serviços
+            Nossos <span className="text-primary text-glow">Serviços</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Oferecemos soluções completas de monitoramento para manter sua infraestrutura 
-            funcionando com máxima eficiência e disponibilidade.
+            Soluções completas de monitoramento e cibersegurança para manter sua infraestrutura
+            funcionando com máxima eficiência, disponibilidade e proteção.
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((service, index) => (
-            <Card key={index} className="h-full hover:shadow-glow transition-all duration-300 border-0 bg-white/80 backdrop-blur-sm">
+            <Card key={index} className="h-full border border-primary/20 bg-card/60 backdrop-blur-sm hover:border-primary/60 hover:shadow-cyber transition-all duration-300">
               <CardHeader>
-                <div className="w-12 h-12 bg-gradient-primary rounded-lg flex items-center justify-center mb-4">
-                  <service.icon className="h-6 w-6 text-white" />
+                <div className="w-12 h-12 border border-primary/50 bg-primary/10 rounded flex items-center justify-center mb-4">
+                  <service.icon className="h-6 w-6 text-primary" />
                 </div>
-                <CardTitle className="text-xl">{service.title}</CardTitle>
+                <CardTitle className="text-xl font-mono uppercase tracking-wider">{service.title}</CardTitle>
                 <CardDescription className="text-base">
                   {service.description}
                 </CardDescription>
@@ -87,8 +91,8 @@ const Services = () => {
               <CardContent>
                 <ul className="space-y-2">
                   {service.features.map((feature, idx) => (
-                    <li key={idx} className="flex items-center text-sm">
-                      <div className="w-2 h-2 bg-primary rounded-full mr-3" />
+                    <li key={idx} className="flex items-center text-sm font-mono">
+                      <span className="text-primary mr-2">▸</span>
                       {feature}
                     </li>
                   ))}
