@@ -1,10 +1,22 @@
+import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { TrendingUp, TrendingDown, Activity, AlertTriangle, Cpu, HardDrive } from "lucide-react";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
+import { TrendingUp, TrendingDown, Activity, AlertTriangle, Cpu, HardDrive, ZoomIn } from "lucide-react";
 import grafanaImage from "@/assets/grafana-dashboard.jpg";
 import zabbixImage from "@/assets/zabbix-panel.jpg";
 
+type Panel = {
+  src: string;
+  alt: string;
+  title: string;
+  subtitle: string;
+  description: string;
+  metrics: { label: string; value: string }[];
+};
+
 const Dashboards = () => {
+  const [openPanel, setOpenPanel] = useState<Panel | null>(null);
   const kpis = [
     { icon: Activity, label: "UPTIME", value: "99.98%", trend: "+0.04%", up: true, color: "text-success" },
     { icon: AlertTriangle, label: "ALERTAS / 24H", value: "1.247", trend: "-12%", up: true, color: "text-warning" },
