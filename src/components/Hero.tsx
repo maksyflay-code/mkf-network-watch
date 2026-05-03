@@ -27,7 +27,7 @@ const Hero = () => {
           <img
             src="/lovable-uploads/3233802a-3aab-4144-b7d2-670bc8ede20a.png"
             alt="MKF Solutions"
-            className="h-32 w-auto mx-auto mb-6 drop-shadow-[0_0_30px_hsl(var(--primary)/0.6)]"
+            className="h-56 md:h-72 w-auto mx-auto mb-6 drop-shadow-[0_0_40px_hsl(var(--primary)/0.7)]"
           />
         </div>
 
