@@ -1,8 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { TrendingUp, TrendingDown, Activity, AlertTriangle, Cpu, HardDrive } from "lucide-react";
-import grafanaImage from "@/assets/grafana-dashboard.jpg";
-import zabbixImage from "@/assets/zabbix-panel.jpg";
+import { TrendingUp, TrendingDown, Activity, AlertTriangle, Cpu, HardDrive, Database, BarChart3 } from "lucide-react";
 
 const Dashboards = () => {
   const kpis = [
@@ -25,7 +23,7 @@ const Dashboards = () => {
             Dashboards <span className="text-primary text-glow">Profissionais</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Visualizações claras com Grafana e Zabbix — métricas em tempo real
+            Visualizações claras com painéis em tempo real — métricas detalhadas
             para decisões rápidas e precisas.
           </p>
         </div>
@@ -78,30 +76,52 @@ const Dashboards = () => {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
-          {/* Grafana */}
+          {/* DB Panel — Network Throughput */}
           <Card className="overflow-hidden border border-primary/30 bg-card/80 backdrop-blur-sm shadow-cyber">
-            <div className="relative">
-              <img src={grafanaImage} alt="Dashboard Grafana" className="w-full h-64 object-cover" />
-              <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
-              <div className="absolute top-4 left-4 font-mono text-xs text-primary uppercase tracking-widest border border-primary/50 bg-background/80 px-2 py-1">
-                ● LIVE
+            <div className="relative bg-gradient-cyber p-6 h-64 overflow-hidden">
+              <div className="absolute inset-0 grid-pattern opacity-30" />
+              <div className="relative z-10 flex items-center justify-between mb-4">
+                <div className="flex items-center gap-2">
+                  <Database className="h-5 w-5 text-primary" />
+                  <span className="font-mono text-xs uppercase tracking-widest text-primary">// db_metrics_01</span>
+                </div>
+                <div className="font-mono text-[10px] text-primary uppercase tracking-widest border border-primary/50 bg-background/80 px-2 py-1 animate-pulse-glow">
+                  ● LIVE
+                </div>
               </div>
-              <div className="absolute bottom-4 left-4">
-                <h3 className="text-2xl font-bold text-foreground">Grafana</h3>
-                <p className="text-sm text-muted-foreground">Visualização Avançada</p>
-              </div>
+              <svg viewBox="0 0 400 140" className="relative z-10 w-full h-36" preserveAspectRatio="none">
+                <defs>
+                  <linearGradient id="dbGrad1" x1="0" x2="0" y1="0" y2="1">
+                    <stop offset="0%" stopColor="hsl(var(--primary))" stopOpacity="0.6" />
+                    <stop offset="100%" stopColor="hsl(var(--primary))" stopOpacity="0" />
+                  </linearGradient>
+                </defs>
+                {[20, 40, 60, 80, 100, 120].map((y) => (
+                  <line key={y} x1="0" y1={y} x2="400" y2={y} stroke="hsl(var(--primary))" strokeOpacity="0.08" />
+                ))}
+                <path
+                  d="M0,90 L30,70 L60,80 L90,55 L120,65 L150,40 L180,50 L210,30 L240,45 L270,25 L300,38 L330,20 L360,35 L400,18 L400,140 L0,140 Z"
+                  fill="url(#dbGrad1)"
+                />
+                <path
+                  d="M0,90 L30,70 L60,80 L90,55 L120,65 L150,40 L180,50 L210,30 L240,45 L270,25 L300,38 L330,20 L360,35 L400,18"
+                  fill="none"
+                  stroke="hsl(var(--primary))"
+                  strokeWidth="2"
+                />
+              </svg>
             </div>
             <CardHeader>
-              <CardTitle className="font-mono uppercase tracking-wider text-primary">// dashboards grafana</CardTitle>
+              <CardTitle className="font-mono uppercase tracking-wider text-primary">// throughput_db</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-muted-foreground mb-4">
+              <p className="text-foreground/80 mb-4">
                 Painéis interativos com gráficos em tempo real, métricas detalhadas
-                e alertas visuais para monitoramento completo.
+                e alertas visuais para monitoramento completo da infraestrutura.
               </p>
               <ul className="space-y-2 text-sm">
                 {["Gráficos em tempo real", "Múltiplas fontes de dados", "Alertas personalizáveis", "Interface responsiva"].map((f) => (
-                  <li key={f} className="flex items-center font-mono text-xs">
+                  <li key={f} className="flex items-center font-mono text-xs text-foreground/85">
                     <span className="text-primary mr-2">▸</span>
                     {f}
                   </li>
@@ -110,30 +130,47 @@ const Dashboards = () => {
             </CardContent>
           </Card>
 
-          {/* Zabbix */}
+          {/* DB Panel — Events / Alerts */}
           <Card className="overflow-hidden border border-primary/30 bg-card/80 backdrop-blur-sm shadow-cyber">
-            <div className="relative">
-              <img src={zabbixImage} alt="Painel Zabbix" className="w-full h-64 object-cover" />
-              <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
-              <div className="absolute top-4 left-4 font-mono text-xs text-primary uppercase tracking-widest border border-primary/50 bg-background/80 px-2 py-1">
-                ● LIVE
+            <div className="relative bg-gradient-cyber p-6 h-64 overflow-hidden">
+              <div className="absolute inset-0 grid-pattern opacity-30" />
+              <div className="relative z-10 flex items-center justify-between mb-4">
+                <div className="flex items-center gap-2">
+                  <BarChart3 className="h-5 w-5 text-primary" />
+                  <span className="font-mono text-xs uppercase tracking-widest text-primary">// db_events_02</span>
+                </div>
+                <div className="font-mono text-[10px] text-success uppercase tracking-widest border border-success/50 bg-background/80 px-2 py-1">
+                  ● OK
+                </div>
               </div>
-              <div className="absolute bottom-4 left-4">
-                <h3 className="text-2xl font-bold text-foreground">Zabbix</h3>
-                <p className="text-sm text-muted-foreground">Monitoramento Empresarial</p>
-              </div>
+              <svg viewBox="0 0 400 140" className="relative z-10 w-full h-36" preserveAspectRatio="none">
+                {[20, 40, 60, 80, 100, 120].map((y) => (
+                  <line key={y} x1="0" y1={y} x2="400" y2={y} stroke="hsl(var(--primary))" strokeOpacity="0.08" />
+                ))}
+                {[60, 90, 45, 110, 75, 95, 50, 80, 35, 100, 65, 85, 40, 120, 55, 70].map((h, i) => (
+                  <rect
+                    key={i}
+                    x={i * 25 + 4}
+                    y={140 - h}
+                    width="18"
+                    height={h}
+                    fill="hsl(var(--primary))"
+                    fillOpacity={0.3 + (h / 140) * 0.6}
+                  />
+                ))}
+              </svg>
             </div>
             <CardHeader>
-              <CardTitle className="font-mono uppercase tracking-wider text-primary">// painéis zabbix</CardTitle>
+              <CardTitle className="font-mono uppercase tracking-wider text-primary">// eventos_correlacionados</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-muted-foreground mb-4">
+              <p className="text-foreground/80 mb-4">
                 Solução enterprise para monitoramento de infraestrutura com capacidades
-                avançadas de descoberta e automação.
+                avançadas de descoberta, correlação e automação.
               </p>
               <ul className="space-y-2 text-sm">
                 {["Auto-descoberta de dispositivos", "Mapas de rede dinâmicos", "Relatórios automatizados", "Escalabilidade empresarial"].map((f) => (
-                  <li key={f} className="flex items-center font-mono text-xs">
+                  <li key={f} className="flex items-center font-mono text-xs text-foreground/85">
                     <span className="text-primary mr-2">▸</span>
                     {f}
                   </li>
@@ -147,7 +184,7 @@ const Dashboards = () => {
           <Button
             variant="premium"
             size="lg"
-            onClick={() => window.open('https://wa.me/5574991115690?text=Olá! Gostaria de ver uma demonstração dos dashboards da MKF Solutions.', '_blank')}
+            onClick={() => window.open('https://t.me/+5574991115690?text=' + encodeURIComponent('Olá! Gostaria de ver uma demonstração dos dashboards da MKF Solutions.'), '_blank')}
           >
             Ver Demonstração dos Dashboards
           </Button>
