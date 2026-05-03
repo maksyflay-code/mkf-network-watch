@@ -52,9 +52,6 @@ const Checklist = () => {
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-12">
-          <p className="font-mono text-xs text-primary uppercase tracking-[0.4em] mb-4">
-            // [ assessment_tool ] // self_evaluation
-          </p>
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
             Checklist de <span className="text-primary text-glow">Maturidade</span> em Cibersegurança
           </h2>
@@ -94,7 +91,7 @@ const Checklist = () => {
                         >
                           {isChecked && <Check className="h-3.5 w-3.5 text-background" />}
                         </span>
-                        <span className={`text-sm ${isChecked ? "text-foreground" : "text-foreground/85"}`}>
+                        <span className={`text-base md:text-lg font-semibold leading-snug ${isChecked ? "text-foreground" : "text-foreground/90"}`}>
                           {item.text}
                         </span>
                       </button>

@@ -1,10 +1,22 @@
+import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { TrendingUp, TrendingDown, Activity, AlertTriangle, Cpu, HardDrive } from "lucide-react";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
+import { TrendingUp, TrendingDown, Activity, AlertTriangle, Cpu, HardDrive, ZoomIn } from "lucide-react";
 import grafanaImage from "@/assets/grafana-dashboard.jpg";
 import zabbixImage from "@/assets/zabbix-panel.jpg";
 
+type Panel = {
+  src: string;
+  alt: string;
+  title: string;
+  subtitle: string;
+  description: string;
+  metrics: { label: string; value: string }[];
+};
+
 const Dashboards = () => {
+  const [openPanel, setOpenPanel] = useState<Panel | null>(null);
   const kpis = [
     { icon: Activity, label: "UPTIME", value: "99.98%", trend: "+0.04%", up: true, color: "text-success" },
     { icon: AlertTriangle, label: "ALERTAS / 24H", value: "1.247", trend: "-12%", up: true, color: "text-warning" },
@@ -18,9 +30,6 @@ const Dashboards = () => {
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
-          <p className="font-mono text-xs text-primary uppercase tracking-[0.4em] mb-4">
-            // [ visualization ] // real_time_metrics
-          </p>
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
             Dashboards <span className="text-primary text-glow">Profissionais</span>
           </h2>
@@ -80,31 +89,51 @@ const Dashboards = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
           {/* Grafana */}
           <Card className="overflow-hidden border border-primary/30 bg-card/80 backdrop-blur-sm shadow-cyber">
-            <figure className="relative">
+            <button
+              type="button"
+              onClick={() =>
+                setOpenPanel({
+                  src: grafanaImage,
+                  alt: "Dashboard Grafana com métricas em tempo real",
+                  title: "Grafana",
+                  subtitle: "Visualização Avançada",
+                  description:
+                    "Painéis interativos com gráficos em tempo real, múltiplas fontes de dados e alertas visuais para monitoramento completo da infraestrutura — uptime, latência, throughput, CPU e memória.",
+                  metrics: [
+                    { label: "UPTIME", value: "99.98%" },
+                    { label: "LATÊNCIA", value: "12ms" },
+                    { label: "PAINÉIS", value: "+40" },
+                  ],
+                })
+              }
+              className="relative block w-full text-left group focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+              aria-label="Ampliar dashboard Grafana"
+            >
               <img
                 src={grafanaImage}
                 alt="Dashboard Grafana com métricas em tempo real, gráficos de throughput, CPU, latência e uptime"
                 loading="lazy"
                 width={1280}
                 height={832}
-                className="w-full h-64 object-cover object-top"
+                className="w-full h-64 object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent" />
               <div className="absolute top-3 left-3 font-mono text-[10px] text-primary uppercase tracking-widest border border-primary/50 bg-background/80 px-2 py-1 animate-pulse-glow">
                 ● LIVE
               </div>
-              <figcaption className="absolute bottom-3 left-3 right-3 flex items-end justify-between">
-                <div>
-                  <h3 className="text-2xl font-bold text-foreground">Grafana</h3>
-                  <p className="text-xs font-mono uppercase tracking-widest text-muted-foreground">
-                    Visualização Avançada
-                  </p>
-                </div>
-              </figcaption>
-            </figure>
+              <div className="absolute top-3 right-3 flex items-center gap-1 font-mono text-[10px] text-foreground uppercase tracking-widest border border-primary/40 bg-background/80 px-2 py-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                <ZoomIn className="h-3 w-3" /> Ampliar
+              </div>
+              <div className="absolute bottom-3 left-3 right-3">
+                <h3 className="text-2xl font-bold text-foreground">Grafana</h3>
+                <p className="text-xs font-mono uppercase tracking-widest text-muted-foreground">
+                  Visualização Avançada
+                </p>
+              </div>
+            </button>
             <CardHeader>
-              <CardTitle className="font-mono uppercase tracking-wider text-primary text-base">
-                // dashboards_grafana
+              <CardTitle className="text-2xl font-bold tracking-tight text-primary">
+                Grafana
               </CardTitle>
             </CardHeader>
             <CardContent>
@@ -139,31 +168,51 @@ const Dashboards = () => {
 
           {/* Zabbix */}
           <Card className="overflow-hidden border border-primary/30 bg-card/80 backdrop-blur-sm shadow-cyber">
-            <figure className="relative">
+            <button
+              type="button"
+              onClick={() =>
+                setOpenPanel({
+                  src: zabbixImage,
+                  alt: "Painel Zabbix",
+                  title: "Zabbix",
+                  subtitle: "Monitoramento Empresarial",
+                  description:
+                    "Solução enterprise para monitoramento de infraestrutura com auto-descoberta, mapas de rede dinâmicos, correlação de eventos, severidade de problemas e disponibilidade detalhada por host.",
+                  metrics: [
+                    { label: "HOSTS", value: "+500" },
+                    { label: "TRIGGERS", value: "+2K" },
+                    { label: "SLA", value: "99.9%" },
+                  ],
+                })
+              }
+              className="relative block w-full text-left group focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+              aria-label="Ampliar painel Zabbix"
+            >
               <img
                 src={zabbixImage}
                 alt="Painel Zabbix mostrando hosts, mapas de rede, severidade de problemas e disponibilidade de infraestrutura"
                 loading="lazy"
                 width={1280}
                 height={832}
-                className="w-full h-64 object-cover object-top"
+                className="w-full h-64 object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent" />
               <div className="absolute top-3 left-3 font-mono text-[10px] text-primary uppercase tracking-widest border border-primary/50 bg-background/80 px-2 py-1 animate-pulse-glow">
                 ● LIVE
               </div>
-              <figcaption className="absolute bottom-3 left-3 right-3 flex items-end justify-between">
-                <div>
-                  <h3 className="text-2xl font-bold text-foreground">Zabbix</h3>
-                  <p className="text-xs font-mono uppercase tracking-widest text-muted-foreground">
-                    Monitoramento Empresarial
-                  </p>
-                </div>
-              </figcaption>
-            </figure>
+              <div className="absolute top-3 right-3 flex items-center gap-1 font-mono text-[10px] text-foreground uppercase tracking-widest border border-primary/40 bg-background/80 px-2 py-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                <ZoomIn className="h-3 w-3" /> Ampliar
+              </div>
+              <div className="absolute bottom-3 left-3 right-3">
+                <h3 className="text-2xl font-bold text-foreground">Zabbix</h3>
+                <p className="text-xs font-mono uppercase tracking-widest text-muted-foreground">
+                  Monitoramento Empresarial
+                </p>
+              </div>
+            </button>
             <CardHeader>
-              <CardTitle className="font-mono uppercase tracking-wider text-primary text-base">
-                // painéis_zabbix
+              <CardTitle className="text-2xl font-bold tracking-tight text-primary">
+                Zabbix
               </CardTitle>
             </CardHeader>
             <CardContent>
@@ -208,6 +257,49 @@ const Dashboards = () => {
           </Button>
         </div>
       </div>
+
+      {/* Lightbox */}
+      <Dialog open={!!openPanel} onOpenChange={(o) => !o && setOpenPanel(null)}>
+        <DialogContent className="max-w-5xl w-[95vw] border-primary/40 bg-card/95 backdrop-blur-md p-0 overflow-hidden">
+          {openPanel && (
+            <>
+              <div className="relative">
+                <img
+                  src={openPanel.src}
+                  alt={openPanel.alt}
+                  className="w-full h-auto max-h-[70vh] object-contain bg-background"
+                />
+                <div className="absolute top-3 left-3 font-mono text-[10px] text-primary uppercase tracking-widest border border-primary/50 bg-background/80 px-2 py-1">
+                  ● LIVE
+                </div>
+              </div>
+              <div className="p-6">
+                <DialogHeader>
+                  <DialogTitle className="text-3xl font-bold text-primary">
+                    {openPanel.title}
+                  </DialogTitle>
+                  <DialogDescription className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
+                    {openPanel.subtitle}
+                  </DialogDescription>
+                </DialogHeader>
+                <p className="text-foreground/90 mt-4 mb-5 text-sm md:text-base leading-relaxed">
+                  {openPanel.description}
+                </p>
+                <div className="grid grid-cols-3 gap-3">
+                  {openPanel.metrics.map((m) => (
+                    <div key={m.label} className="border border-primary/30 bg-background/60 p-3 text-center">
+                      <div className="text-2xl font-bold text-primary text-glow leading-tight">{m.value}</div>
+                      <div className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground mt-1">
+                        {m.label}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </>
+          )}
+        </DialogContent>
+      </Dialog>
     </section>
   );
 };
