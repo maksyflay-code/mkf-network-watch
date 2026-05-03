@@ -1,6 +1,5 @@
 import { Button } from "@/components/ui/button";
 import { Shield, Activity, Lock, Radar } from "lucide-react";
-import mkfLogoText from "@/assets/mkf-logo-text.png";
 
 const Hero = () => {
   return (
@@ -26,9 +25,9 @@ const Hero = () => {
         {/* Logo */}
         <div className="mb-8">
           <img
-            src={mkfLogoText}
+            src="/lovable-uploads/3233802a-3aab-4144-b7d2-670bc8ede20a.png"
             alt="MKF Solutions"
-            className="h-64 md:h-80 lg:h-96 w-auto mx-auto mb-6"
+            className="h-56 md:h-72 w-auto mx-auto mb-6 drop-shadow-[0_0_40px_hsl(var(--primary)/0.6)]"
           />
         </div>
 

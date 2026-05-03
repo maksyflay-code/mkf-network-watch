@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
+import mkfLogoText from "@/assets/mkf-logo-text.png";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -28,9 +29,9 @@ const Header = () => {
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center space-x-3">
             <img
-              src="/lovable-uploads/3233802a-3aab-4144-b7d2-670bc8ede20a.png"
+              src={mkfLogoText}
               alt="MKF Solutions"
-              className="h-11 w-auto drop-shadow-[0_0_12px_hsl(var(--primary)/0.6)]"
+              className="h-12 md:h-14 w-auto"
             />
             <span className="hidden sm:inline font-mono text-xs text-primary uppercase tracking-widest text-glow">
               [ secure-terminal ]
