@@ -33,10 +33,10 @@ const Checklist = () => {
   }, [checked]);
 
   const level = useMemo(() => {
-    if (score.pct >= 80) return { label: "MADURO", color: "text-success border-success/50", desc: "Excelente postura de segurança. Mantenha melhorias contínuas." };
-    if (score.pct >= 50) return { label: "INTERMEDIÁRIO", color: "text-warning border-warning/50", desc: "Boa base, mas há lacunas críticas a serem corrigidas." };
-    if (score.pct >= 25) return { label: "BÁSICO", color: "text-primary border-primary/50", desc: "Sua infraestrutura está exposta. Ação imediata recomendada." };
-    return { label: "CRÍTICO", color: "text-destructive border-destructive/50", desc: "Risco elevado de incidente. Procure ajuda especializada agora." };
+    if (score.pct >= 80) return { label: "MADURO", textClass: "text-success", borderClass: "border-success/50", desc: "Excelente postura de segurança. Mantenha melhorias contínuas." };
+    if (score.pct >= 50) return { label: "INTERMEDIÁRIO", textClass: "text-warning", borderClass: "border-warning/50", desc: "Boa base, mas há lacunas críticas a serem corrigidas." };
+    if (score.pct >= 25) return { label: "BÁSICO", textClass: "text-primary", borderClass: "border-primary/50", desc: "Sua infraestrutura está exposta. Ação imediata recomendada." };
+    return { label: "CRÍTICO", textClass: "text-destructive", borderClass: "border-destructive/50", desc: "Risco elevado de incidente. Procure ajuda especializada agora." };
   }, [score.pct]);
 
   const toggle = (id: string) => setChecked((s) => ({ ...s, [id]: !s[id] }));
@@ -94,7 +94,7 @@ const Checklist = () => {
                         >
                           {isChecked && <Check className="h-3.5 w-3.5 text-background" />}
                         </span>
-                        <span className={`text-sm ${isChecked ? "text-foreground" : "text-muted-foreground"}`}>
+                        <span className={`text-sm ${isChecked ? "text-foreground" : "text-foreground/85"}`}>
                           {item.text}
                         </span>
                       </button>
@@ -126,18 +126,18 @@ const Checklist = () => {
                 {score.done} / {score.total} controles implementados
               </p>
 
-              <div className={`p-4 border ${level.color.split(' ')[1]} mb-4`}>
+              <div className={`p-4 border ${level.borderClass} mb-4`}>
                 <div className="flex items-center gap-2 mb-2">
                   {score.pct >= 50 ? (
-                    <ShieldCheck className={`h-5 w-5 ${level.color.split(' ')[0]}`} />
+                    <ShieldCheck className={`h-5 w-5 ${level.textClass}`} />
                   ) : (
-                    <AlertCircle className={`h-5 w-5 ${level.color.split(' ')[0]}`} />
+                    <AlertCircle className={`h-5 w-5 ${level.textClass}`} />
                   )}
-                  <span className={`font-mono uppercase tracking-wider font-bold ${level.color.split(' ')[0]}`}>
+                  <span className={`font-mono uppercase tracking-wider font-bold ${level.textClass}`}>
                     Nível: {level.label}
                   </span>
                 </div>
-                <p className="text-sm text-muted-foreground">{level.desc}</p>
+                <p className="text-sm text-foreground/80">{level.desc}</p>
               </div>
 
               <Button
