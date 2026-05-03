@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Shield, Activity, Lock, Radar } from "lucide-react";
-import mkfLogoText from "@/assets/mkf-logo-text.png";
+
 
 const Hero = () => {
   return (
