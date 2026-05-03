@@ -211,8 +211,8 @@ const Dashboards = () => {
               </div>
             </button>
             <CardHeader>
-              <CardTitle className="font-mono uppercase tracking-wider text-primary text-base">
-                // painéis_zabbix
+              <CardTitle className="text-2xl font-bold tracking-tight text-primary">
+                Zabbix
               </CardTitle>
             </CardHeader>
             <CardContent>
@@ -257,6 +257,49 @@ const Dashboards = () => {
           </Button>
         </div>
       </div>
+
+      {/* Lightbox */}
+      <Dialog open={!!openPanel} onOpenChange={(o) => !o && setOpenPanel(null)}>
+        <DialogContent className="max-w-5xl w-[95vw] border-primary/40 bg-card/95 backdrop-blur-md p-0 overflow-hidden">
+          {openPanel && (
+            <>
+              <div className="relative">
+                <img
+                  src={openPanel.src}
+                  alt={openPanel.alt}
+                  className="w-full h-auto max-h-[70vh] object-contain bg-background"
+                />
+                <div className="absolute top-3 left-3 font-mono text-[10px] text-primary uppercase tracking-widest border border-primary/50 bg-background/80 px-2 py-1">
+                  ● LIVE
+                </div>
+              </div>
+              <div className="p-6">
+                <DialogHeader>
+                  <DialogTitle className="text-3xl font-bold text-primary">
+                    {openPanel.title}
+                  </DialogTitle>
+                  <DialogDescription className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
+                    {openPanel.subtitle}
+                  </DialogDescription>
+                </DialogHeader>
+                <p className="text-foreground/90 mt-4 mb-5 text-sm md:text-base leading-relaxed">
+                  {openPanel.description}
+                </p>
+                <div className="grid grid-cols-3 gap-3">
+                  {openPanel.metrics.map((m) => (
+                    <div key={m.label} className="border border-primary/30 bg-background/60 p-3 text-center">
+                      <div className="text-2xl font-bold text-primary text-glow leading-tight">{m.value}</div>
+                      <div className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground mt-1">
+                        {m.label}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </>
+          )}
+        </DialogContent>
+      </Dialog>
     </section>
   );
 };
