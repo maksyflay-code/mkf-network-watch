@@ -23,15 +23,6 @@ const Hero = () => {
           <span className="text-foreground">MONITORED</span>
         </div>
 
-        {/* Logo */}
-        <div className="mb-8">
-          <img
-            src={mkfLogoText}
-            alt="MKF Solutions"
-            className="h-40 md:h-56 w-auto mx-auto mb-6 drop-shadow-[0_0_40px_hsl(var(--primary)/0.6)]"
-          />
-        </div>
-
 
 
         <h1 className="text-5xl md:text-7xl font-bold mb-6 text-foreground">
