@@ -89,28 +89,48 @@ const Dashboards = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
           {/* Grafana */}
           <Card className="overflow-hidden border border-primary/30 bg-card/80 backdrop-blur-sm shadow-cyber">
-            <figure className="relative">
+            <button
+              type="button"
+              onClick={() =>
+                setOpenPanel({
+                  src: grafanaImage,
+                  alt: "Dashboard Grafana com métricas em tempo real",
+                  title: "Grafana",
+                  subtitle: "Visualização Avançada",
+                  description:
+                    "Painéis interativos com gráficos em tempo real, múltiplas fontes de dados e alertas visuais para monitoramento completo da infraestrutura — uptime, latência, throughput, CPU e memória.",
+                  metrics: [
+                    { label: "UPTIME", value: "99.98%" },
+                    { label: "LATÊNCIA", value: "12ms" },
+                    { label: "PAINÉIS", value: "+40" },
+                  ],
+                })
+              }
+              className="relative block w-full text-left group focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+              aria-label="Ampliar dashboard Grafana"
+            >
               <img
                 src={grafanaImage}
                 alt="Dashboard Grafana com métricas em tempo real, gráficos de throughput, CPU, latência e uptime"
                 loading="lazy"
                 width={1280}
                 height={832}
-                className="w-full h-64 object-cover object-top"
+                className="w-full h-64 object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent" />
               <div className="absolute top-3 left-3 font-mono text-[10px] text-primary uppercase tracking-widest border border-primary/50 bg-background/80 px-2 py-1 animate-pulse-glow">
                 ● LIVE
               </div>
-              <figcaption className="absolute bottom-3 left-3 right-3 flex items-end justify-between">
-                <div>
-                  <h3 className="text-2xl font-bold text-foreground">Grafana</h3>
-                  <p className="text-xs font-mono uppercase tracking-widest text-muted-foreground">
-                    Visualização Avançada
-                  </p>
-                </div>
-              </figcaption>
-            </figure>
+              <div className="absolute top-3 right-3 flex items-center gap-1 font-mono text-[10px] text-foreground uppercase tracking-widest border border-primary/40 bg-background/80 px-2 py-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                <ZoomIn className="h-3 w-3" /> Ampliar
+              </div>
+              <div className="absolute bottom-3 left-3 right-3">
+                <h3 className="text-2xl font-bold text-foreground">Grafana</h3>
+                <p className="text-xs font-mono uppercase tracking-widest text-muted-foreground">
+                  Visualização Avançada
+                </p>
+              </div>
+            </button>
             <CardHeader>
               <CardTitle className="font-mono uppercase tracking-wider text-primary text-base">
                 // dashboards_grafana
