@@ -71,7 +71,7 @@ const Hero = () => {
             variant="premium"
             size="lg"
             className="text-lg px-8 py-6"
-            onClick={() => window.open('https://wa.me/557498042836?text=Olá! Gostaria de solicitar um orçamento da MKF Solutions.', '_blank')}
+            onClick={() => window.open('https://wa.me/5574991115690?text=Olá! Gostaria de solicitar um orçamento da MKF Solutions.', '_blank')}
           >
             Solicitar Orçamento
           </Button>

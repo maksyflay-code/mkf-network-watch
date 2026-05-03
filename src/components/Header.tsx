@@ -50,7 +50,7 @@ const Header = () => {
             <Button
               variant="premium"
               size="sm"
-              onClick={() => window.open('https://wa.me/5574998042836?text=Olá! Gostaria de saber mais sobre os serviços da MKF Solutions.', '_blank')}
+              onClick={() => window.open('https://wa.me/5574991115690?text=Olá! Gostaria de saber mais sobre os serviços da MKF Solutions.', '_blank')}
             >
               Orçamento
             </Button>
@@ -80,7 +80,7 @@ const Header = () => {
               <Button
                 variant="premium"
                 className="w-full"
-                onClick={() => window.open('https://wa.me/5574998042836?text=Olá! Gostaria de saber mais sobre os serviços da MKF Solutions.', '_blank')}
+                onClick={() => window.open('https://wa.me/5574991115690?text=Olá! Gostaria de saber mais sobre os serviços da MKF Solutions.', '_blank')}
               >
                 Orçamento
               </Button>
