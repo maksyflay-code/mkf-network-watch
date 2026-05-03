@@ -34,9 +34,6 @@ const Stats = () => {
       <div className="absolute inset-0 grid-pattern opacity-30" />
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
-          <p className="font-mono text-xs text-primary uppercase tracking-[0.4em] mb-4">
-            // [ stats ] // by_the_numbers
-          </p>
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
             Números que <span className="text-primary text-glow">Falam por Si</span>
           </h2>

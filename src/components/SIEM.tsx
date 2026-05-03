@@ -59,9 +59,6 @@ const SIEM = () => {
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
-          <p className="font-mono text-xs text-primary uppercase tracking-[0.4em] mb-4">
-            // [ siem_engine ] // event_correlation
-          </p>
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
             <span className="text-primary text-glow">SIEM</span> — Inteligência de Segurança
           </h2>
