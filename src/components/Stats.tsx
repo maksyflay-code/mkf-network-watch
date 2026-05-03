@@ -29,31 +29,36 @@ const Stats = () => {
   ];
 
   return (
-    <section className="py-20 bg-gradient-primary text-white">
-      <div className="container mx-auto px-4">
+    <section className="py-20 relative overflow-hidden border-y border-primary/30">
+      <div className="absolute inset-0 bg-gradient-cyber" />
+      <div className="absolute inset-0 grid-pattern opacity-30" />
+      <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
+          <p className="font-mono text-xs text-primary uppercase tracking-[0.4em] mb-4">
+            // [ stats ] // by_the_numbers
+          </p>
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Números que Falam por Si
+            Números que <span className="text-primary text-glow">Falam por Si</span>
           </h2>
-          <p className="text-xl text-white/90 max-w-3xl mx-auto">
-            Nossa experiência e dedicação se refletem nos resultados que 
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            Nossa experiência e dedicação se refletem nos resultados que
             entregamos para nossos clientes todos os dias.
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
           {stats.map((stat, index) => (
-            <div key={index} className="text-center">
-              <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                <stat.icon className="h-8 w-8 text-white" />
+            <div key={index} className="text-center border border-primary/30 bg-card/60 backdrop-blur-sm p-6 corner-brackets">
+              <div className="w-14 h-14 border border-primary/50 bg-primary/10 rounded flex items-center justify-center mx-auto mb-4">
+                <stat.icon className="h-7 w-7 text-primary" />
               </div>
-              <div className="text-4xl md:text-5xl font-bold mb-2">
+              <div className="text-4xl md:text-5xl font-bold mb-2 text-primary text-glow">
                 {stat.number}
               </div>
-              <div className="text-xl font-semibold mb-2">
+              <div className="text-base font-semibold mb-2 font-mono uppercase tracking-wider">
                 {stat.label}
               </div>
-              <div className="text-white/80">
+              <div className="text-sm text-muted-foreground">
                 {stat.description}
               </div>
             </div>
