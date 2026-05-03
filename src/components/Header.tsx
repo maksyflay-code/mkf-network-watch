@@ -30,9 +30,9 @@ const Header = () => {
             <img
               src="/lovable-uploads/3233802a-3aab-4144-b7d2-670bc8ede20a.png"
               alt="MKF Solutions"
-              className="h-10 w-auto"
+              className="h-11 w-auto drop-shadow-[0_0_12px_hsl(var(--primary)/0.6)]"
             />
-            <span className="hidden sm:inline font-mono text-xs text-primary uppercase tracking-widest">
+            <span className="hidden sm:inline font-mono text-xs text-primary uppercase tracking-widest text-glow">
               [ secure-terminal ]
             </span>
           </div>
