@@ -162,7 +162,7 @@ const Checklist = () => {
                     `Gostaria de uma avaliação especializada para evoluir minha postura de segurança.`;
 
                   window.open(
-                    `https://t.me/+5574991115690?text=${encodeURIComponent(message)}`,
+                    `https://t.me/+5574998042836?text=${encodeURIComponent(message)}`,
                     "_blank"
                   );
                 }}

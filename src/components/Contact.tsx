@@ -67,7 +67,7 @@ const Contact = () => {
               variant="whatsapp" 
               size="lg"
               className="w-full md:w-auto"
-              onClick={() => window.open('https://wa.me/5574991115690?text=Olá! Gostaria de solicitar um orçamento para serviços de monitoramento da MKF Solutions.', '_blank')}
+              onClick={() => window.open('https://wa.me/5574998042836?text=Olá! Gostaria de solicitar um orçamento para serviços de monitoramento da MKF Solutions.', '_blank')}
             >
               <MessageCircle className="mr-2 h-5 w-5" />
               Conversar no WhatsApp
@@ -108,7 +108,7 @@ const Contact = () => {
                   variant="premium"
                   size="lg" 
                   className="w-full"
-                  onClick={() => window.open('https://wa.me/5574991115690?text=Olá! Gostaria de solicitar uma avaliação gratuita para implementação de monitoramento na minha empresa.', '_blank')}
+                  onClick={() => window.open('https://wa.me/5574998042836?text=Olá! Gostaria de solicitar uma avaliação gratuita para implementação de monitoramento na minha empresa.', '_blank')}
                 >
                   Solicitar Avaliação Gratuita
                 </Button>
