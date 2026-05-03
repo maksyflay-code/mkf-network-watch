@@ -33,9 +33,6 @@ const Header = () => {
               alt="MKF Solutions"
               className="h-12 md:h-14 w-auto"
             />
-            <span className="hidden sm:inline font-mono text-xs text-primary uppercase tracking-widest text-glow">
-              [ secure-terminal ]
-            </span>
           </div>
 
           <nav className="hidden lg:flex items-center space-x-6">
