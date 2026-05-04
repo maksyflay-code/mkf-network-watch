@@ -9,6 +9,7 @@ import Firewall from "@/components/Firewall";
 import SIEM from "@/components/SIEM";
 import Dashboards from "@/components/Dashboards";
 import Checklist from "@/components/Checklist";
+import FAQ from "@/components/FAQ";
 import Contact from "@/components/Contact";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
 
