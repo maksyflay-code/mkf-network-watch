@@ -28,16 +28,18 @@ const Header = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20 md:h-24">
           <div className="relative flex items-center">
-            <span className="logo-orbit-ring" aria-hidden="true">
-              <span className="logo-orbit logo-orbit-1" />
-              <span className="logo-orbit logo-orbit-2" />
-              <span className="logo-orbit logo-orbit-3" />
-            </span>
-            <img
-              src={mkfLogoText}
-              alt="MKF Solutions"
-              className="relative z-10 h-20 md:h-24 w-auto drop-shadow-[0_0_12px_hsl(var(--primary)/0.5)]"
-            />
+            <div className="relative">
+              <span className="logo-orbit-ring" aria-hidden="true">
+                <span className="logo-orbit logo-orbit-1" />
+                <span className="logo-orbit logo-orbit-2" />
+                <span className="logo-orbit logo-orbit-3" />
+              </span>
+              <img
+                src={mkfLogoText}
+                alt="MKF Solutions"
+                className="relative z-10 h-20 md:h-24 w-auto drop-shadow-[0_0_12px_hsl(var(--primary)/0.5)]"
+              />
+            </div>
           </div>
 
           <nav className="hidden lg:flex items-center space-x-6">
