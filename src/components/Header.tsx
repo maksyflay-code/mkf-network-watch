@@ -27,7 +27,7 @@ const Header = () => {
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-md border-b border-primary/30">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20 md:h-24">
-          <div className="relative flex items-center">
+          <div className="relative flex items-center pl-6 md:pl-8">
             <span className="logo-orbit-ring" aria-hidden="true">
               <span className="logo-orbit logo-orbit-1" />
               <span className="logo-orbit logo-orbit-2" />
