@@ -9,12 +9,12 @@ interface Item {
 }
 
 const items: Item[] = [
-  { id: "fw", category: "essenciais", text: "Firewall corporativo com políticas ativas" },
-  { id: "mfa", category: "essenciais", text: "MFA habilitado e acesso remoto via VPN" },
-  { id: "backup", category: "essenciais", text: "Backups automatizados e testados (3-2-1)" },
-  { id: "monitor", category: "essenciais", text: "Monitoramento 24/7 da infraestrutura" },
-  { id: "siem", category: "essenciais", text: "Logs centralizados em SIEM com alertas em tempo real" },
-  { id: "ir", category: "essenciais", text: "Plano de resposta a incidentes documentado" },
+  { id: "fw", category: "essenciais", text: "Firewall ativo e atualizado" },
+  { id: "mfa", category: "essenciais", text: "MFA e VPN no acesso remoto" },
+  { id: "backup", category: "essenciais", text: "Backups testados (3-2-1)" },
+  { id: "monitor", category: "essenciais", text: "Monitoramento 24/7" },
+  { id: "siem", category: "essenciais", text: "Logs em SIEM com alertas" },
+  { id: "ir", category: "essenciais", text: "Plano de resposta a incidentes" },
 ];
 
 const Checklist = () => {
