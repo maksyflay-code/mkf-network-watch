@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Shield, Activity, Lock, Radar } from "lucide-react";
+import mkfLogoText from "@/assets/mkf-logo-text.png";
 
 
 const Hero = () => {
@@ -14,6 +15,14 @@ const Hero = () => {
 
       <div className="relative z-10 container mx-auto px-4 text-center">
         {/* Status bar */}
+        <div className="flex justify-center mb-8">
+          <img
+            src={mkfLogoText}
+            alt="MKF Solutions"
+            className="h-40 md:h-56 w-auto bg-background"
+          />
+        </div>
+
         <div className="inline-flex items-center gap-3 mb-8 px-4 py-2 border border-primary/40 bg-background/60 backdrop-blur-sm font-mono text-xs uppercase tracking-widest">
           <span className="w-2 h-2 rounded-full bg-success animate-pulse" />
           <span className="text-success">SECURE</span>
