@@ -165,4 +165,49 @@
   .animate-pulse-glow {
     animation: pulse-glow 2.5s ease-in-out infinite;
   }
+
+  /* Tilt card spotlight glow */
+  .tilt-card { position: relative; }
+  .tilt-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: radial-gradient(
+      400px circle at var(--mx, 50%) var(--my, 50%),
+      hsl(var(--primary) / 0.18),
+      transparent 40%
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    z-index: 1;
+  }
+  .tilt-card:hover::before { opacity: 1; }
+
+  /* Caret blink for typewriter */
+  @keyframes caret-blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+  .caret {
+    display: inline-block;
+    width: 0.6ch;
+    height: 1em;
+    background: hsl(var(--primary));
+    margin-left: 2px;
+    vertical-align: text-bottom;
+    animation: caret-blink 1s step-end infinite;
+  }
+
+  /* Reveal on scroll */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+  }
+  .reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
