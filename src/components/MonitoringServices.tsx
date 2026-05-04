@@ -1,5 +1,6 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Building2, Network, Router, Activity, Signal, Database, Globe, Gauge } from "lucide-react";
+import TiltCard from "@/components/effects/TiltCard";
 
 const MonitoringServices = () => {
   const enterprise = [
@@ -83,30 +84,29 @@ const MonitoringServices = () => {
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {items.map((s) => (
-          <Card
-            key={s.title}
-            className="h-full border border-primary/20 bg-card/60 backdrop-blur-sm hover:border-primary/60 hover:shadow-cyber transition-all duration-300"
-          >
-            <CardHeader>
-              <div className="w-12 h-12 border border-primary/50 bg-primary/10 rounded flex items-center justify-center mb-4">
-                <s.icon className="h-6 w-6 text-primary" />
-              </div>
-              <CardTitle className="text-lg font-mono uppercase tracking-wider">
-                {s.title}
-              </CardTitle>
-              <CardDescription className="text-sm">{s.description}</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <ul className="space-y-1.5">
-                {s.features.map((f) => (
-                  <li key={f} className="flex items-center text-xs font-mono text-foreground/85">
-                    <span className="text-primary mr-2">▸</span>
-                    {f}
-                  </li>
-                ))}
-              </ul>
-            </CardContent>
-          </Card>
+          <TiltCard key={s.title} className="h-full">
+            <Card className="h-full border border-primary/20 bg-card/60 backdrop-blur-sm hover:border-primary/60 hover:shadow-cyber transition-all duration-300">
+              <CardHeader>
+                <div className="w-12 h-12 border border-primary/50 bg-primary/10 rounded flex items-center justify-center mb-4">
+                  <s.icon className="h-6 w-6 text-primary" />
+                </div>
+                <CardTitle className="text-lg font-mono uppercase tracking-wider">
+                  {s.title}
+                </CardTitle>
+                <CardDescription className="text-sm">{s.description}</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <ul className="space-y-1.5">
+                  {s.features.map((f) => (
+                    <li key={f} className="flex items-center text-xs font-mono text-foreground/85">
+                      <span className="text-primary mr-2">▸</span>
+                      {f}
+                    </li>
+                  ))}
+                </ul>
+              </CardContent>
+            </Card>
+          </TiltCard>
         ))}
       </div>
     </div>
