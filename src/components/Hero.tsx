@@ -1,14 +1,19 @@
 import { Button } from "@/components/ui/button";
 import { Shield, Activity, Lock, Radar } from "lucide-react";
-
-
+import ParticlesBackground from "@/components/effects/ParticlesBackground";
+import { useTypewriter } from "@/hooks/useTypewriter";
 
 const Hero = () => {
+  const { text: typed, done } = useTypewriter("Monitoramento", 80, 400);
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
       {/* Cyber grid background */}
       <div className="absolute inset-0 grid-pattern opacity-60" />
       <div className="absolute inset-0 bg-gradient-hero" />
+
+      {/* Particles network */}
+      <ParticlesBackground />
 
       {/* Scanline effect */}
       <div className="absolute inset-0 scanline" />
@@ -23,10 +28,11 @@ const Hero = () => {
           <span className="text-foreground">MONITORED</span>
         </div>
 
-
-
-        <h1 className="text-5xl md:text-7xl font-bold mb-6 text-foreground">
-          <span className="text-glow text-primary">Monitoramento</span>
+        <h1 className="text-5xl md:text-7xl font-bold mb-6 text-foreground min-h-[2.4em] md:min-h-[2.4em]">
+          <span className="text-glow text-primary">
+            {typed}
+            {!done && <span className="caret" />}
+          </span>
           <br />
           <span className="text-foreground">e Cibersegurança</span>
         </h1>
