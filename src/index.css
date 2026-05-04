@@ -211,3 +211,43 @@
     transform: translateY(0);
   }
 }
+
+@layer utilities {
+  .logo-orbit-ring {
+    position: absolute;
+    inset: 50% auto auto 50%;
+    width: 130%;
+    aspect-ratio: 1 / 1;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: 0;
+  }
+  .logo-orbit {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    border: 1px solid hsl(var(--primary) / 0.35);
+    border-top-color: hsl(var(--primary) / 0.9);
+    border-right-color: transparent;
+    border-bottom-color: hsl(var(--primary) / 0.15);
+    border-left-color: transparent;
+    box-shadow: 0 0 12px hsl(var(--primary) / 0.25) inset;
+  }
+  .logo-orbit-1 { animation: orbit-spin 6s linear infinite; }
+  .logo-orbit-2 {
+    inset: 10%;
+    border-style: dashed;
+    border-top-color: transparent;
+    border-right-color: hsl(var(--primary) / 0.7);
+    animation: orbit-spin 9s linear infinite reverse;
+  }
+  .logo-orbit-3 {
+    inset: 22%;
+    border-top-color: transparent;
+    border-left-color: hsl(var(--primary-glow) / 0.8);
+    animation: orbit-spin 4s linear infinite;
+  }
+  @keyframes orbit-spin {
+    to { transform: rotate(360deg); }
+  }
+}
