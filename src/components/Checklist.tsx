@@ -41,7 +41,7 @@ const Checklist = () => {
   }, {});
 
   return (
-    <section id="checklist" className="py-16 relative overflow-hidden">
+    <section id="checklist" className="py-20 relative overflow-hidden">
       <div className="absolute inset-0 grid-pattern opacity-20" />
 
       <div className="container mx-auto px-4 relative z-10">
