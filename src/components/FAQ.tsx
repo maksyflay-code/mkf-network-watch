@@ -22,7 +22,7 @@ const faqs = [
 
 const FAQ = () => {
   return (
-    <section id="faq" className="py-16 relative overflow-hidden">
+    <section id="faq" className="py-20 relative overflow-hidden">
       <div className="absolute inset-0 grid-pattern opacity-10" />
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-8">
