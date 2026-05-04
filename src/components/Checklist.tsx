@@ -9,18 +9,12 @@ interface Item {
 }
 
 const items: Item[] = [
-  { id: "fw", category: "Perímetro", text: "Possuo firewall corporativo com políticas ativas e revisadas" },
-  { id: "ips", category: "Perímetro", text: "Tenho IPS/IDS com assinaturas atualizadas" },
-  { id: "vpn", category: "Acesso", text: "Acesso remoto é feito apenas via VPN com MFA" },
-  { id: "mfa", category: "Acesso", text: "Autenticação multifator (MFA) habilitada para usuários críticos" },
-  { id: "backup", category: "Resiliência", text: "Backups automatizados, testados e isolados (3-2-1)" },
-  { id: "patch", category: "Vulnerabilidades", text: "Política de patch management aplicada a servidores e endpoints" },
-  { id: "siem", category: "Detecção", text: "Logs centralizados em SIEM com correlação de eventos" },
-  { id: "monitor", category: "Detecção", text: "Monitoramento 24/7 da infraestrutura (Zabbix/Grafana)" },
-  { id: "alerts", category: "Resposta", text: "Alertas críticos chegam em tempo real (Telegram/Email/SMS)" },
-  { id: "ir", category: "Resposta", text: "Plano de resposta a incidentes documentado e testado" },
-  { id: "awareness", category: "Pessoas", text: "Treinamento periódico de conscientização em segurança" },
-  { id: "audit", category: "Compliance", text: "Auditorias regulares e gestão de conformidade (LGPD/ISO)" },
+  { id: "fw", category: "essenciais", text: "Firewall corporativo com políticas ativas" },
+  { id: "mfa", category: "essenciais", text: "MFA habilitado e acesso remoto via VPN" },
+  { id: "backup", category: "essenciais", text: "Backups automatizados e testados (3-2-1)" },
+  { id: "monitor", category: "essenciais", text: "Monitoramento 24/7 da infraestrutura" },
+  { id: "siem", category: "essenciais", text: "Logs centralizados em SIEM com alertas em tempo real" },
+  { id: "ir", category: "essenciais", text: "Plano de resposta a incidentes documentado" },
 ];
 
 const Checklist = () => {
