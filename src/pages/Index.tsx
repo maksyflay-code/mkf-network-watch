@@ -56,6 +56,7 @@ const Index = () => {
       <Dashboards />
       <Stats />
       <Checklist />
+      <FAQ />
       <Contact />
       <WhatsAppFloat />
     </div>
