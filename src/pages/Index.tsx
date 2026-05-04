@@ -48,6 +48,7 @@ const Index = () => {
   return (
     <div className="min-h-screen">
       <Header />
+      <Breadcrumbs />
       <main>
         <Hero />
         <Services />
