@@ -9,12 +9,12 @@ interface Item {
 }
 
 const items: Item[] = [
-  { id: "fw", category: "essenciais", text: "Firewall corporativo com políticas ativas" },
-  { id: "mfa", category: "essenciais", text: "MFA habilitado e acesso remoto via VPN" },
-  { id: "backup", category: "essenciais", text: "Backups automatizados e testados (3-2-1)" },
-  { id: "monitor", category: "essenciais", text: "Monitoramento 24/7 da infraestrutura" },
-  { id: "siem", category: "essenciais", text: "Logs centralizados em SIEM com alertas em tempo real" },
-  { id: "ir", category: "essenciais", text: "Plano de resposta a incidentes documentado" },
+  { id: "fw", category: "essenciais", text: "Firewall ativo e atualizado" },
+  { id: "mfa", category: "essenciais", text: "MFA e VPN no acesso remoto" },
+  { id: "backup", category: "essenciais", text: "Backups testados (3-2-1)" },
+  { id: "monitor", category: "essenciais", text: "Monitoramento 24/7" },
+  { id: "siem", category: "essenciais", text: "Logs em SIEM com alertas" },
+  { id: "ir", category: "essenciais", text: "Plano de resposta a incidentes" },
 ];
 
 const Checklist = () => {
@@ -41,130 +41,93 @@ const Checklist = () => {
   }, {});
 
   return (
-    <section id="checklist" className="py-20 relative overflow-hidden">
+    <section id="checklist" className="py-16 relative overflow-hidden">
       <div className="absolute inset-0 grid-pattern opacity-20" />
 
       <div className="container mx-auto px-4 relative z-10">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Checklist de <span className="text-primary text-glow">Maturidade</span> em Cibersegurança
+        <div className="text-center mb-8">
+          <h2 className="text-3xl md:text-4xl font-bold mb-3">
+            Diagnóstico rápido de <span className="text-primary text-glow">Maturidade</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Marque os controles que sua empresa ou provedor já possui e descubra
-            seu nível de maturidade em segurança da informação.
+          <p className="text-base text-muted-foreground max-w-2xl mx-auto">
+            Marque os controles que sua empresa já possui. Em 30 segundos você descobre seu nível.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {/* Checklist */}
-          <div className="lg:col-span-2 space-y-6">
-            {Object.entries(grouped).map(([cat, list]) => (
-              <div key={cat} className="border border-primary/20 bg-card/60 backdrop-blur-sm p-6">
-                <h3 className="font-mono text-sm md:text-base font-bold uppercase tracking-widest text-primary mb-4">
-                  // {cat}
-                </h3>
-                <div className="space-y-3">
-                  {list.map((item) => {
-                    const isChecked = !!checked[item.id];
-                    return (
-                      <button
-                        key={item.id}
-                        onClick={() => toggle(item.id)}
-                        className={`w-full flex items-start gap-3 text-left p-3 border transition-all ${
-                          isChecked
-                            ? "border-success/60 bg-success/10"
-                            : "border-border hover:border-primary/50 hover:bg-card"
-                        }`}
-                      >
-                        <span
-                          className={`flex-shrink-0 w-5 h-5 mt-0.5 border flex items-center justify-center ${
-                            isChecked
-                              ? "bg-success border-success"
-                              : "border-muted-foreground/40"
-                          }`}
-                        >
-                          {isChecked && <Check className="h-3.5 w-3.5 text-background" />}
-                        </span>
-                        <span className={`text-base md:text-lg font-semibold leading-snug ${isChecked ? "text-foreground" : "text-foreground/90"}`}>
-                          {item.text}
-                        </span>
-                      </button>
-                    );
-                  })}
-                </div>
-              </div>
-            ))}
+        <div className="max-w-3xl mx-auto border border-primary/30 bg-card/60 backdrop-blur-sm p-5 md:p-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-2 mb-6">
+            {items.map((item) => {
+              const isChecked = !!checked[item.id];
+              return (
+                <button
+                  key={item.id}
+                  onClick={() => toggle(item.id)}
+                  className={`flex items-center gap-3 text-left px-3 py-2.5 border transition-all ${
+                    isChecked
+                      ? "border-success/60 bg-success/10"
+                      : "border-border hover:border-primary/50 hover:bg-card"
+                  }`}
+                >
+                  <span
+                    className={`flex-shrink-0 w-4 h-4 border flex items-center justify-center ${
+                      isChecked ? "bg-success border-success" : "border-muted-foreground/40"
+                    }`}
+                  >
+                    {isChecked && <Check className="h-3 w-3 text-background" />}
+                  </span>
+                  <span className="text-sm md:text-base font-medium leading-tight">
+                    {item.text}
+                  </span>
+                </button>
+              );
+            })}
           </div>
 
-          {/* Score panel */}
-          <div className="lg:sticky lg:top-24 self-start">
-            <div className="border border-primary/40 bg-gradient-cyber p-6 corner-brackets">
-              <p className="font-mono text-xs text-muted-foreground uppercase tracking-widest mb-2">
-                [ resultado ]
-              </p>
-              <div className="flex items-baseline gap-2 mb-4">
-                <span className="text-6xl font-bold text-primary text-glow">{score.pct}</span>
-                <span className="text-2xl text-muted-foreground">%</span>
+          <div className="flex flex-col md:flex-row md:items-center gap-4 pt-4 border-t border-border">
+            <div className="flex-1">
+              <div className="flex items-baseline gap-2 mb-1">
+                <span className="text-4xl font-bold text-primary text-glow">{score.pct}</span>
+                <span className="text-lg text-muted-foreground">%</span>
+                <span className={`ml-2 font-mono text-xs uppercase tracking-wider font-bold ${level.textClass}`}>
+                  {score.pct >= 50 ? <ShieldCheck className="inline h-4 w-4 mr-1" /> : <AlertCircle className="inline h-4 w-4 mr-1" />}
+                  {level.label}
+                </span>
               </div>
-
-              <div className="w-full h-2 bg-muted mb-2 overflow-hidden">
+              <div className="w-full h-1.5 bg-muted overflow-hidden">
                 <div
                   className="h-full bg-gradient-primary transition-all duration-500"
                   style={{ width: `${score.pct}%` }}
                 />
               </div>
-              <p className="font-mono text-xs text-muted-foreground mb-6">
-                {score.done} / {score.total} controles implementados
-              </p>
-
-              <div className={`p-4 border ${level.borderClass} mb-4`}>
-                <div className="flex items-center gap-2 mb-2">
-                  {score.pct >= 50 ? (
-                    <ShieldCheck className={`h-5 w-5 ${level.textClass}`} />
-                  ) : (
-                    <AlertCircle className={`h-5 w-5 ${level.textClass}`} />
-                  )}
-                  <span className={`font-mono uppercase tracking-wider font-bold ${level.textClass}`}>
-                    Nível: {level.label}
-                  </span>
-                </div>
-                <p className="text-sm text-foreground/80">{level.desc}</p>
-              </div>
-
-              <Button
-                variant="telegram"
-                className="w-full"
-                onClick={() => {
-                  const checkedItems = items.filter((it) => checked[it.id]);
-                  const missingItems = items.filter((it) => !checked[it.id]);
-
-                  const checkedSummary = checkedItems.length
-                    ? checkedItems.map((it) => `✅ ${it.text}`).join("\n")
-                    : "— Nenhum controle marcado —";
-
-                  const missingSummary = missingItems.length
-                    ? missingItems.slice(0, 6).map((it) => `❌ ${it.text}`).join("\n") +
-                      (missingItems.length > 6 ? `\n…e mais ${missingItems.length - 6} pendentes` : "")
-                    : "— Nenhuma pendência —";
-
-                  const message =
-                    `🛡️ *Diagnóstico de Maturidade — MKF Solutions*\n\n` +
-                    `📊 Pontuação: *${score.pct}%* (${score.done}/${score.total} controles)\n` +
-                    `🎯 Nível: *${level.label}*\n\n` +
-                    `*Controles implementados:*\n${checkedSummary}\n\n` +
-                    `*Lacunas identificadas:*\n${missingSummary}\n\n` +
-                    `Gostaria de uma avaliação especializada para evoluir minha postura de segurança.`;
-
-                  window.open(
-                    `https://t.me/+5574991115690?text=${encodeURIComponent(message)}`,
-                    "_blank"
-                  );
-                }}
-              >
-                <Send className="mr-2 h-4 w-4" />
-                Falar com Especialista no Telegram
-              </Button>
+              <p className="font-mono text-xs text-muted-foreground mt-1">{level.desc}</p>
             </div>
+            <Button
+              variant="telegram"
+              onClick={() => {
+                const checkedItems = items.filter((it) => checked[it.id]);
+                const missingItems = items.filter((it) => !checked[it.id]);
+                const checkedSummary = checkedItems.length
+                  ? checkedItems.map((it) => `✅ ${it.text}`).join("\n")
+                  : "— Nenhum controle marcado —";
+                const missingSummary = missingItems.length
+                  ? missingItems.map((it) => `❌ ${it.text}`).join("\n")
+                  : "— Nenhuma pendência —";
+                const message =
+                  `🛡️ *Diagnóstico — MKF Solutions*\n\n` +
+                  `📊 Pontuação: *${score.pct}%* (${score.done}/${score.total})\n` +
+                  `🎯 Nível: *${level.label}*\n\n` +
+                  `*Implementados:*\n${checkedSummary}\n\n` +
+                  `*Lacunas:*\n${missingSummary}\n\n` +
+                  `Quero uma avaliação especializada.`;
+                window.open(
+                  `https://t.me/+5574991115690?text=${encodeURIComponent(message)}`,
+                  "_blank"
+                );
+              }}
+            >
+              <Send className="mr-2 h-4 w-4" />
+              Falar com Especialista
+            </Button>
           </div>
         </div>
       </div>
