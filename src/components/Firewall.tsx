@@ -72,7 +72,7 @@ const Firewall = () => {
           <Button
             variant="premium"
             size="lg"
-            className="text-lg px-8 py-6"
+            className="text-base md:text-lg px-4 md:px-8 py-5 md:py-6 w-full sm:w-auto whitespace-normal h-auto"
             onClick={() => window.open('https://wa.me/5574991115690?text=Olá! Gostaria de solicitar uma avaliação gratuita do meu firewall com a MKF Solutions.', '_blank')}
           >
             Solicitar Avaliação Gratuita
