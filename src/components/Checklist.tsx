@@ -66,7 +66,7 @@ const Checklist = () => {
           <div className="lg:col-span-2 space-y-6">
             {Object.entries(grouped).map(([cat, list]) => (
               <div key={cat} className="border border-primary/20 bg-card/60 backdrop-blur-sm p-6">
-                <h3 className="font-mono text-xs uppercase tracking-widest text-primary mb-4">
+                <h3 className="font-mono text-sm md:text-base font-bold uppercase tracking-widest text-primary mb-4">
                   // {cat}
                 </h3>
                 <div className="space-y-3">
