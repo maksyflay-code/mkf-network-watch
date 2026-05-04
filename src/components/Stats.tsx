@@ -58,7 +58,7 @@ const Stats = () => {
     },
     {
       icon: Award,
-      value: 5,
+      value: 10,
       suffix: "+",
       label: "Anos de Experiência",
       description: "Especialistas em monitoramento",
