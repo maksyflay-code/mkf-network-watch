@@ -1,5 +1,6 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Monitor, Server, Wifi, AlertTriangle, BarChart3, Settings, Shield, ShieldAlert, Lock } from "lucide-react";
+import TiltCard from "@/components/effects/TiltCard";
 
 const Services = () => {
   const services = [
@@ -75,27 +76,29 @@ const Services = () => {
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((service, index) => (
-            <Card key={index} className="h-full border border-primary/20 bg-card/60 backdrop-blur-sm hover:border-primary/60 hover:shadow-cyber transition-all duration-300">
-              <CardHeader>
-                <div className="w-12 h-12 border border-primary/50 bg-primary/10 rounded flex items-center justify-center mb-4">
-                  <service.icon className="h-6 w-6 text-primary" />
-                </div>
-                <CardTitle className="text-xl font-mono uppercase tracking-wider">{service.title}</CardTitle>
-                <CardDescription className="text-base">
-                  {service.description}
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <ul className="space-y-2">
-                  {service.features.map((feature, idx) => (
-                    <li key={idx} className="flex items-center text-sm font-mono">
-                      <span className="text-primary mr-2">▸</span>
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-              </CardContent>
-            </Card>
+            <TiltCard key={index} className="h-full">
+              <Card className="h-full border border-primary/20 bg-card/60 backdrop-blur-sm hover:border-primary/60 hover:shadow-cyber transition-all duration-300">
+                <CardHeader>
+                  <div className="w-12 h-12 border border-primary/50 bg-primary/10 rounded flex items-center justify-center mb-4">
+                    <service.icon className="h-6 w-6 text-primary" />
+                  </div>
+                  <CardTitle className="text-xl font-mono uppercase tracking-wider">{service.title}</CardTitle>
+                  <CardDescription className="text-base">
+                    {service.description}
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <ul className="space-y-2">
+                    {service.features.map((feature, idx) => (
+                      <li key={idx} className="flex items-center text-sm font-mono">
+                        <span className="text-primary mr-2">▸</span>
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
+                </CardContent>
+              </Card>
+            </TiltCard>
           ))}
         </div>
       </div>
