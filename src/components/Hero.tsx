@@ -31,12 +31,6 @@ const Hero = () => {
           <span className="text-muted-foreground">//</span>
           <span className="text-foreground">MONITORED</span>
         </div>
-          <span className="text-success">SECURE</span>
-          <span className="text-muted-foreground">//</span>
-          <span className="text-primary">ONLINE</span>
-          <span className="text-muted-foreground">//</span>
-          <span className="text-foreground">MONITORED</span>
-        </div>
 
 
 
